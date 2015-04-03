@@ -1,0 +1,19 @@
+template <typename T>
+typename Vector<T>::iterator Vector<T>::erase(iterator itr)
+{
+    auto temp = itr;
+    while(itr!=end())
+    {
+          *itr=*(itr+1);
+          ++itr;
+    }
+    --theSize;
+    return temp;
+}
+
+The above is the erase function I wrote. For the worst case,
+the iterator is in the begining. In the worst case, we have to
+iterate through all the elements. For each element, we carry out one 
+operation. So for n elements, there are n operations. Finally we have 
+to do one more operation for the --theSize, so totally we have n+1 
+operations. This means that the complexity of this function is o(N).
